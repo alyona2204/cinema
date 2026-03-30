@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./admin/login/Login";
 import Home from "./admin/home/Home";
 import GuestHome from "./guest/home/Home";
@@ -10,7 +10,7 @@ import Ticket from "./guest/ticket/Ticket";
 
 function App() {
   return (
-    <Router basename="/cinema">
+    <Router>
       <div className="App">
         <Routes>
           <Route path="/" element={<GuestLayout />}>
