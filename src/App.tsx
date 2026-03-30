@@ -10,7 +10,7 @@ import Ticket from "./guest/ticket/Ticket";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/cinema">
       <div className="App">
         <Routes>
           <Route path="/" element={<GuestLayout />}>
