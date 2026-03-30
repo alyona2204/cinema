@@ -1,0 +1,13 @@
+.button {
+  padding: 12px 20px;
+  box-shadow: 0px 0px 3px 0px #0000001f;
+  box-shadow: 0px 3px 3px 0px #0000003d;
+  background: #ffffff73;
+  font-weight: 900;
+  font-size: 15px;
+}
+
+.active {
+  padding: 16px 20px;
+  background-color: #ffffff;
+}

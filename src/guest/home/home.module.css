@@ -1,0 +1,6 @@
+.films {
+  display: flex;
+  flex-direction: column;
+  margin-top: 35px;
+  gap: 30px;
+}

@@ -1,0 +1,24 @@
+.container {
+  color: var(--primary-text-light);
+  padding: 35px 14px;
+}
+
+.title {
+  font-size: 34px;
+  line-height: 39px;
+  margin-bottom: 0;
+}
+
+.strong {
+  font-weight: 900;
+}
+
+.thin {
+  font-weight: 100;
+}
+
+.subtitle {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 8px;
+}

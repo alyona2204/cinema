@@ -1,0 +1,17 @@
+.button {
+  padding: 12px 32px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 3px;
+  border: 0;
+}
+
+.primary {
+  background-color: var(--primary-button);
+  color: var(--primary-text-light);
+}
+
+.secondary {
+  background-color: var(--secondary-button);
+  color: var(--primary-text-dark);
+}

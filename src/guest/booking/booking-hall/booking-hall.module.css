@@ -1,0 +1,24 @@
+.hall-wrapper {
+  background-color: #171d24;
+  padding: 15px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+
+.hall-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  padding: 0 15px;
+  gap: 15px;
+}
+
+.place {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}

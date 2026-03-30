@@ -1,0 +1,16 @@
+.container {
+  width: 100%;
+}
+
+.label {
+  color: #848484;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 400;
+  margin-bottom: 2px;
+}
+
+.select {
+  border: 1px solid #b7b7b7;
+  border-radius: 0;
+}

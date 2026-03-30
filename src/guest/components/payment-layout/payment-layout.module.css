@@ -1,0 +1,42 @@
+.container {
+  background-color: var(--color-background);
+}
+
+.header {
+  position: relative;
+  padding: 25px 15px;
+  color: var(--accent-color);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-image: radial-gradient(
+    circle,
+    var(--accent-color) 60%,
+    transparent 40%
+  );
+  background-size: 6px 6px;
+  background-repeat: repeat-x;
+}
+
+.body {
+  padding: 20px 15px 30px 15px;
+}
+
+.info-item {
+  display: flex;
+  gap: 3px;
+}
+
+.content {
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+}

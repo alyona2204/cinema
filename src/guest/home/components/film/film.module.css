@@ -1,0 +1,67 @@
+.container {
+  background-color: var(--color-background);
+  width: 100%;
+  border-radius: 2px;
+  padding: 15px;
+}
+
+.film-info {
+  display: flex;
+  gap: 15px;
+}
+
+.poster {
+  height: 175px;
+  width: 125px;
+  display: flex;
+  align-items: center;
+}
+
+.poster img {
+  width: 100%;
+  height: auto;
+  max-height: 175px;
+}
+
+.film-name {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.film-description {
+  font-size: 14px;
+}
+
+.halls {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.hall-name {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.seances {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.seance {
+  border-radius: 2px;
+  padding: 8px;
+  box-shadow: 0px 0px 2px 0px #0000001f;
+  box-shadow: 0px 2px 2px 0px #0000003d;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.expired-seance {
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.7;
+}

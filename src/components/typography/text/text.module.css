@@ -1,0 +1,19 @@
+.primary-dark {
+  color: var(--primary-text-dark);
+}
+
+.primary-light {
+  color: var(--primary-text-light);
+}
+
+.secondary {
+  color: var(--secondary-text-color);
+  font-size: var(--secondary-text-size);
+  font-weight: var(--secondary-text-weight);
+}
+
+.ellipsis {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

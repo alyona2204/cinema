@@ -1,0 +1,33 @@
+.item {
+  border-radius: 0;
+  border: 0;
+}
+
+.header {
+  background-color: var(--accent-color);
+  color: var(--primary-text-light);
+  font-size: 22px;
+  font-weight: 700;
+  padding: 35px 42px;
+}
+
+.accordionButton {
+  /* reset bootstrap styles */
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  color: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  padding: 0;
+  &::after {
+    color: inherit !important;
+    background-image: url("../../../../assets/angle-down.png") !important;
+    height: 13px;
+  }
+}
+
+.accordionContent {
+  background-color: var(--color-background);
+  padding: 35px 35px 35px 104px;
+}

@@ -1,0 +1,29 @@
+.container {
+  --active-day-width: 24%;
+  display: flex;
+  align-items: center;
+}
+
+.day {
+  margin: 0 1px;
+  padding: 0 20px;
+  width: calc((100% - var(--active-day-width)) / 6);
+  background-color: var(--color-background);
+  cursor: pointer;
+  box-sizing: border-box;
+  font-size: 12px;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  height: 48px;
+}
+
+.active-day {
+  width: var(--active-day-width);
+  background-color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  height: 52px;
+  cursor: auto;
+}
