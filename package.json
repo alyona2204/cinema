@@ -1,6 +1,6 @@
 {
   "name": "cinema",
-  "homepage": "https://alyona2204.github.io/cinema/",
+  "homepage": "https://alyona2204.github.io/cinema",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",              
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "postbuild": "cp dist/index.html dist/404.html"
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
