@@ -9,7 +9,7 @@ function GuestLayout() {
     <div className="ui-guest">
       <div className="container-lg">
         <div className="d-flex justify-content-between align-items-center">
-          <AppTitle />
+          <AppTitle onTitlelick={() => navigate("/")} />
           <Button
             style={{ padding: 12 }}
             onClick={() => navigate("/admin/login")}

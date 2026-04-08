@@ -86,6 +86,7 @@ function PriceConfiguration(props: {
             style={{ width: 100 }}
             label="Цена, рублей"
             onChange={(value) => handleChange("priceStandart", value)}
+            min={1}
           />
           <Text
             type="secondary"
@@ -100,6 +101,7 @@ function PriceConfiguration(props: {
             style={{ width: 100 }}
             label="Цена, рублей"
             onChange={(value) => handleChange("priceVip", value)}
+            min={1}
           />
           <Text
             type="secondary"

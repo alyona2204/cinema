@@ -7,7 +7,6 @@ import useFetch from "../../../hooks/use-fetch/useFetch";
 import api from "../../../api/api";
 import { useState } from "react";
 import Spinner from "../../../components/spinner/Spinner";
-import moment from "moment";
 
 function BookingHall(props: {
   seanceId: string;
@@ -18,12 +17,12 @@ function BookingHall(props: {
     type: HallPlaceType,
   ) => void;
   isSelected?: (row: number, col: number) => boolean;
+  date: string;
 }) {
   const [hallConfig, setHallConfig] = useState<HallPlaceType[][]>();
 
   const { loading } = useFetch(
-    () =>
-      api.seance.getHallConfig(props.seanceId, moment().format("YYYY-MM-DD")),
+    () => api.seance.getHallConfig(props.seanceId, props.date),
     {
       onFetchSuccess: (result) => setHallConfig(result),
     },

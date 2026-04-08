@@ -8,6 +8,7 @@ export type InputPropsType<V> = {
   onChange?: (value: string) => void;
   style?: React.CSSProperties;
   type?: HTMLInputTypeAttribute;
+  placeholder?: string;
 };
 
 function Input<V extends string | number>(props: InputPropsType<V>) {
@@ -21,6 +22,7 @@ function Input<V extends string | number>(props: InputPropsType<V>) {
         className={`${styles.input} form-control`}
         onChange={(e) => props.onChange?.(e.currentTarget.value)}
         type={props.type}
+        placeholder={props.placeholder}
       />
     </div>
   );

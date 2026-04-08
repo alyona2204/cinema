@@ -14,3 +14,28 @@
   border: 1px solid #b7b7b7;
   border-radius: 0;
 }
+
+.input::placeholder {
+  color: #757575;
+  font-size: 16px;
+  opacity: 1;
+}
+
+/* for old browser support*/
+.input::-ms-input-placeholder {
+  color: #757575;
+  font-size: 16px;
+  opacity: 1;
+}
+
+.input::-webkit-input-placeholder {
+  color: #757575;
+  font-size: 16px;
+  opacity: 1;
+}
+
+.input::-moz-placeholder {
+  color: #757575;
+  font-size: 16px;
+  opacity: 1;
+}

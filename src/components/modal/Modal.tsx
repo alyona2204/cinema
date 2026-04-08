@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Button from "../button/Button";
 import styles from "./modal.module.css";
+import closeIcon from "../../assets/close-icon.png";
 
 function Modal(props: {
   open: boolean;
@@ -25,6 +26,9 @@ function Modal(props: {
       >
         <header className={styles.header}>
           <h3 className={styles.title}>{props.title}</h3>
+          <div className={styles.close} onClick={props.onClose}>
+            <img src={closeIcon} />
+          </div>
         </header>
 
         <div className={styles.body}>{props.children}</div>

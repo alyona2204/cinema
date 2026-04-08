@@ -1,9 +1,10 @@
-import { useRef, useState } from "react";
+import { useRef, useState, type ReactNode } from "react";
 import Modal from "../../../../../components/modal/Modal";
 import Input from "../../../../../components/form/input/Input";
 import Button from "../../../../../components/button/Button";
 import Text from "../../../../../components/typography/text/Text";
 import styles from "./film-modal.module.css";
+import InputNumber from "../../../../../components/form/input-number/InputNumber";
 
 export type FilmDataType = {
   filmName: string;
@@ -13,7 +14,12 @@ export type FilmDataType = {
   filePoster?: File;
 };
 
-type FieldType = { key: keyof Omit<FilmDataType, "filePoster">; label: string };
+type FieldType = {
+  key: keyof Omit<FilmDataType, "filePoster">;
+  label: string;
+  placeholder?: string;
+  render?: (field: FieldType) => ReactNode;
+};
 
 function FilmModal(props: {
   open: boolean;
@@ -25,7 +31,7 @@ function FilmModal(props: {
 
   const [data, setData] = useState<FilmDataType>({
     filmName: "",
-    filmDuration: "",
+    filmDuration: "1",
     filmDescription: "",
     filmOrigin: "",
     filePoster: undefined,
@@ -47,8 +53,24 @@ function FilmModal(props: {
   };
 
   const fields: FieldType[] = [
-    { key: "filmName", label: "Название фильма" },
-    { key: "filmDuration", label: "Продолжительность фильма(мин)" },
+    {
+      key: "filmName",
+      label: "Название фильма",
+      placeholder: "Например, «Гражданин Кейн»",
+    },
+    {
+      key: "filmDuration",
+      label: "Продолжительность фильма(мин)",
+      render: (field) => (
+        <InputNumber
+          value={Number(data[field.key])}
+          label={field.label}
+          key={field.key}
+          onChange={(value) => onChange(field.key, value.toString())}
+          min={1}
+        />
+      ),
+    },
     { key: "filmDescription", label: "Описание фильма" },
     { key: "filmOrigin", label: "Страна" },
   ];
@@ -68,14 +90,19 @@ function FilmModal(props: {
       title="ДОБАВЛЕНИЕ ФИЛЬМА"
       okButtonText={"ДОБАВИТЬ ФИЛЬМ"}
     >
-      {fields.map((field) => (
-        <Input
-          value={data[field.key]}
-          label={field.label}
-          key={field.key}
-          onChange={(value) => onChange(field.key, value)}
-        />
-      ))}
+      {fields.map((field) => {
+        if (field.render) {
+          return field.render(field);
+        }
+        return (
+          <Input
+            value={data[field.key]}
+            label={field.label}
+            key={field.key}
+            onChange={(value) => onChange(field.key, value)}
+          />
+        );
+      })}
       <input
         ref={fileInputRef}
         type="file"

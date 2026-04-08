@@ -1,6 +1,7 @@
 :root {
   --timeline-width: 1200px; /* 24 hours × 50px */
-  --timeline-height: 60px; /* 24 hours × 50px */
+  --timeline-height: 60px;
+  --timeline-scroll-container-padding-left: 20px;
 }
 
 .header {
@@ -8,6 +9,7 @@
   display: flex;
   gap: 15px;
   align-items: center;
+  padding-left: var(--timeline-scroll-container-padding-left);
 }
 
 .deletion-drop-zone {
@@ -29,6 +31,7 @@
 }
 
 .scroll-wrapper {
+  padding-left: var(--timeline-scroll-container-padding-left);
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
@@ -85,9 +88,5 @@
 }
 
 .scroll-wrapper::-webkit-scrollbar {
-  height: 4px;
-}
-.scroll-wrapper::-webkit-scrollbar-thumb {
-  background-color: #ccc;
-  border-radius: 2px;
+  display: none;
 }

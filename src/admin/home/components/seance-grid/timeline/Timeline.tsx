@@ -19,6 +19,22 @@ function Timeline(props: {
 }) {
   const [isSeanceDragging, setIsSeanceDragging] = useState(false);
 
+  const getVisibleTimeLabels = () => {
+    const visibleTimeLabels = [];
+
+    for (const seance of props.seances) {
+      const startHour = timeToHours(seance.seance_time);
+      const floor = Math.floor(startHour);
+      if (floor - startHour === 0) {
+        visibleTimeLabels.push(startHour);
+      } else {
+        visibleTimeLabels.push(floor, floor + 1);
+      }
+    }
+
+    return visibleTimeLabels.filter((time) => time >= 0);
+  };
+  console.log(getVisibleTimeLabels());
   return (
     <div>
       <div className={styles.header}>
@@ -85,9 +101,14 @@ function Timeline(props: {
 
         <div className={styles["time-labels"]}>
           {Array.from({ length: 24 }, (_, i) => {
+            const isVisible = getVisibleTimeLabels().includes(i);
             return (
-              <div key={i} className={styles["time-label-item"]}>
-                {i === 0 ? null : <span>{i}:00</span>}
+              <div
+                key={i}
+                className={styles["time-label-item"]}
+                style={isVisible ? {} : { opacity: 0 }}
+              >
+                <span>{String(i).padStart(2, "0")}:00</span>
               </div>
             );
           })}

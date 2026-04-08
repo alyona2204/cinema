@@ -12,16 +12,3 @@
   display: flex;
   gap: 10px;
 }
-
-.deleteButton {
-  width: 20px !important;
-  height: 20px !important;
-  padding: 0;
-  padding-left: 1px;
-}
-
-.deleteIcon {
-  font-weight: 600;
-  font-size: 14px;
-  width: 14px;
-}

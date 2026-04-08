@@ -112,7 +112,7 @@ function HallConfiguration(props: {
             label="Рядов, шт"
             value={data.rowCount}
             onChange={(value) => handleChange("rowCount", value)}
-            min={0}
+            min={1}
             max={20}
           />
           <span className="d-flex align-items-end pb-2">X</span>
@@ -121,7 +121,7 @@ function HallConfiguration(props: {
             label="Мест, шт"
             value={data.placeCount}
             onChange={(value) => handleChange("placeCount", value)}
-            min={0}
+            min={1}
             max={15}
           />
         </div>

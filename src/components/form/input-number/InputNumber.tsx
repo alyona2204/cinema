@@ -1,12 +1,15 @@
 import Input, { type InputPropsType } from "../input/Input";
 
-function InputNumber(
-  props: Omit<InputPropsType<number>, "type" | "onChange"> & {
-    onChange?: (value: number) => void;
-    min?: number;
-    max?: number;
-  },
-) {
+export type NumberInputPropsType = Omit<
+  InputPropsType<number>,
+  "type" | "onChange"
+> & {
+  onChange?: (value: number) => void;
+  min?: number;
+  max?: number;
+};
+
+function InputNumber(props: NumberInputPropsType) {
   return (
     <Input
       type="number"

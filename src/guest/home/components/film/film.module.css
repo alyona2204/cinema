@@ -15,12 +15,14 @@
   width: 125px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .poster img {
-  width: 100%;
+  min-width: 100%;
   height: auto;
   max-height: 175px;
+  object-fit: cover;
 }
 
 .film-name {

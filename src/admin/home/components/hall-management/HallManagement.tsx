@@ -7,6 +7,7 @@ import styles from "./hall-management.module.css";
 import Input from "../../../../components/form/input/Input";
 import ContentSection from "../content-section/ContentSection";
 import type { SeanceType } from "../../../../api/seance";
+import DeleteButton from "../delete-button/DeleteButton";
 
 function HallManagement(props: {
   halls: HallType[];
@@ -54,12 +55,7 @@ function HallManagement(props: {
         {props.halls.map((hall) => (
           <li key={hall.id} className={styles.item}>
             <span>- {hall.hall_name}</span>
-            <Button
-              className={styles.deleteButton}
-              onClick={() => deleteHall(hall.id)}
-            >
-              <span className={styles.deleteIcon}>&#x1F5D1;</span>
-            </Button>
+            <DeleteButton onClick={() => deleteHall(hall.id)} />
           </li>
         ))}
       </ul>
@@ -71,7 +67,11 @@ function HallManagement(props: {
         okButtonText={"ДОБАВИТЬ ЗАЛ"}
         onOk={createHall}
       >
-        <Input label="Название зала" onChange={(value) => setHallName(value)} />
+        <Input
+          placeholder="Например, «Зал 1»"
+          label="Название зала"
+          onChange={(value) => setHallName(value)}
+        />
       </Modal>
     </ContentSection>
   );

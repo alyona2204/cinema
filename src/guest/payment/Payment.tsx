@@ -4,7 +4,6 @@ import Button from "../../components/button/Button";
 import PaymentLayout from "../components/payment-layout/PaymentLayout";
 import { useState } from "react";
 import api from "../../api/api";
-import moment from "moment";
 import type { TicketLocationState } from "../ticket/Ticket";
 
 function Payment() {
@@ -17,7 +16,8 @@ function Payment() {
     return <div>Данные не найдены. Вернитесь на страницу бронирования.</div>;
   }
 
-  const { selectedPlaces, seance, film, hall } = state as BookingLocationState;
+  const { selectedPlaces, seance, film, hall, date } =
+    state as BookingLocationState;
 
   const calculateCost = () => {
     let coast = 0;
@@ -33,7 +33,7 @@ function Payment() {
     try {
       const response = await api.ticket.create({
         seanceId: seance.id,
-        ticketDate: moment().format("YYYY-MM-DD"),
+        ticketDate: date,
         tickets: selectedPlaces.map((p) => ({
           row: p.rowIndex,
           place: p.colIndex,

@@ -1,8 +1,8 @@
 import type { DragEvent } from "react";
 import type { FilmType } from "../../../../../api/film";
-import Button from "../../../../../components/button/Button";
 import Text from "../../../../../components/typography/text/Text";
 import styles from "./film.module.css";
+import DeleteButton from "../../delete-button/DeleteButton";
 
 function Film(props: {
   film: FilmType;
@@ -25,14 +25,10 @@ function Film(props: {
         </div>
         <div className={styles.footer}>
           <div className={styles.duration}>{props.film.film_duration} мин</div>
-          <Button
-            className={styles.deleteButton}
+          <DeleteButton
             onClick={() => props.onDelete()}
-            type="secondary"
             disabled={props.disabled}
-          >
-            <span className={styles.deleteIcon}>&#x1F5D1;</span>
-          </Button>
+          />
         </div>
       </div>
     </div>

@@ -39,6 +39,7 @@ function Login() {
             <Input
               label="E-mail"
               onChange={(value) => onChange("login", value)}
+              placeholder="example@domain.xyz"
             />
             <Input
               label="Пароль"

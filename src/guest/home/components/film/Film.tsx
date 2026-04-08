@@ -28,6 +28,8 @@ function Film(props: {
     return seanceTime.isBefore(currentTime);
   };
 
+  const hasSeances = (hall: HallType) => getSeances(hall).length > 0;
+
   if (!props.film) {
     return null;
   }
@@ -53,12 +55,16 @@ function Film(props: {
         </div>
       </div>
       <div className={styles.halls}>
-        {props.halls.map((hall) => {
+        {props.halls.filter(hasSeances).map((hall) => {
           return (
             <div key={hall.id}>
               <h5 className={styles["hall-name"]}>{hall.hall_name}</h5>
               <Seances
-                onSeanceClick={(id) => navigate(`booking/${id}`)}
+                onSeanceClick={(id) =>
+                  navigate(`booking/${id}`, {
+                    state: { date: props.selectedDate },
+                  })
+                }
                 seances={getSeances(hall)}
                 isExpired={isExpired}
               />

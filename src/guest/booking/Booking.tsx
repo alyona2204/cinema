@@ -3,7 +3,7 @@ import type { AllDataType } from "../../api/all-data";
 import Spinner from "../../components/spinner/Spinner";
 import useFetchAllData from "../../hooks/use-fetch-all-data/useFetchAllData";
 import styles from "./booking.module.css";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Text from "../../components/typography/text/Text";
 import BookingHall from "./booking-hall/BookingHall";
 import Button from "../../components/button/Button";
@@ -22,11 +22,13 @@ export type BookingLocationState = {
   hall: HallType;
   film: FilmType;
   seance: SeanceType;
+  date: string;
 };
 
 function Booking() {
   const navigate = useNavigate();
   const { seanceId } = useParams();
+  const location = useLocation();
   const [allData, setAllData] = useState<AllDataType>();
   const [selectedPlaces, setSelectedPlaces] = useState<SelectedPlace[]>([]);
 
@@ -86,9 +88,10 @@ function Booking() {
     return <Spinner />;
   }
 
-  if (!seance || !film || !hall) {
-    return null;
+  if (!location.state || !seance || !film || !hall) {
+    return <div>Данные не найдены. Вернитесь на главную страницу.</div>;
   }
+  const { date } = location.state;
 
   return (
     <div className={styles.container}>
@@ -102,6 +105,7 @@ function Booking() {
         seanceId={seanceId ?? ""}
         onPlaceClick={handlePlaceClick}
         isSelected={isSelected}
+        date={date}
       />
       <div className="d-flex justify-content-center p-4">
         <Button
@@ -119,6 +123,7 @@ function Booking() {
                 hall,
                 film,
                 seance,
+                date,
               } as BookingLocationState,
             });
           }}
